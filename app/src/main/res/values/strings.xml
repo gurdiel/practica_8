@@ -2,4 +2,12 @@
     <string name="app_name">practica_8</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre_del_m_dulo">Nombre del módulo</string>
+    <string name="cr_ditos">Créditos</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="limpiar_title">Limpieza de datos</string>
+    <string name="dialogo">"Se borrarán todos los registros. "</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirmar">Confirmar</string>
 </resources>
