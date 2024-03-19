@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.practica_8.R
 import com.example.practica_8.databinding.FragmentFormularioBinding
@@ -35,14 +36,7 @@ class FormularioFragment : Fragment() {
          // Como extraigo números.
 
         binding.btnGuardar.setOnClickListener {
-
-            val txtNombre: String = binding.etModulo.text.toString()
-            val creditos:String = binding.etCreditos.text.toString()
-            sharedVM.guardar(txtNombre,creditos)
-            binding.etCreditos.setText(" ")
-            binding.etModulo.setText(" ")
-            binding.etModulo.requestFocus()
-
+            guardado()
         }
         binding.btnEliminar.setOnClickListener{
             AlertDialog.Builder(context)
@@ -56,6 +50,26 @@ class FormularioFragment : Fragment() {
                 }
                 .show()
         }
+    }
+    private fun guardado(){
+
+        val txtNombre = binding.etModulo
+        val creditos = binding.etCreditos
+
+        if(txtNombre == null || txtNombre.text.toString().trim().length == 0){
+            //No dejo meter espacios en blanco
+            Toast.makeText(context,"Introduce un nombre correcto", Toast.LENGTH_SHORT).show()
+            txtNombre.setText("")
+            return
+        }
+        if(creditos == null || creditos.text.toString() == ""){
+            Toast.makeText(context,"Introduce un número correcto", Toast.LENGTH_SHORT).show()
+            return
+        }
+        sharedVM.guardar(txtNombre.text.toString(),creditos.text.toString())
+        txtNombre.setText("")
+        creditos.setText("")
+        txtNombre.requestFocus()
     }
 
 
